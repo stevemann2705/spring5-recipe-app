@@ -3,7 +3,7 @@ package in.stevemann.spring5recipeapp.domain;
 import org.junit.Before;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class CategoryTest {
 
@@ -17,7 +17,7 @@ public class CategoryTest {
     @Test
     public void getId() {
         Long idValue = 4L;
-        category.setId(idValue);
+        category.setId(3L);
         assertEquals(idValue, category.getId());
     }
 
