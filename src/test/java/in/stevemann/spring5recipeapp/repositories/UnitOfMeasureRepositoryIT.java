@@ -25,13 +25,13 @@ public class UnitOfMeasureRepositoryIT {
 
     @Test
     public void findByUom() throws Exception {
-        Optional<UnitOfMeasure> unitOfMeasure = unitOfMeasureRepository.findByUom("Teaspoon");
-        assertEquals("Teaspoon", unitOfMeasure.get().getUom());
+        Optional<UnitOfMeasure> unitOfMeasure = unitOfMeasureRepository.findByUnitOfMeasure("Teaspoon");
+        assertEquals("Teaspoon", unitOfMeasure.get().getUnitOfMeasure());
     }
 
     @Test
     public void findByUomCup() throws Exception {
-        Optional<UnitOfMeasure> unitOfMeasure = unitOfMeasureRepository.findByUom("Cup");
-        assertEquals("Cup", unitOfMeasure.get().getUom());
+        Optional<UnitOfMeasure> unitOfMeasure = unitOfMeasureRepository.findByUnitOfMeasure("Cup");
+        assertEquals("Cup", unitOfMeasure.get().getUnitOfMeasure());
     }
 }
