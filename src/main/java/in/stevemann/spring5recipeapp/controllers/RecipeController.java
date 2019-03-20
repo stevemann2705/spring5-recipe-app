@@ -37,7 +37,7 @@ public class RecipeController {
         return "/recipe/recipeform";
     }
 
-    @PostMapping("/recipe/{id}/update")
+    @GetMapping("/recipe/{id}/update")
     public String updateRecipe(@PathVariable String id, Model model) {
         log.debug("Calling updateRecipe() method in Recipe Controller");
 
