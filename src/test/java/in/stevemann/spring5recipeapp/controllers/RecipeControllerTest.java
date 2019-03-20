@@ -79,7 +79,7 @@ public class RecipeControllerTest {
 
         when(recipeService.findCommandById(anyLong())).thenReturn(recipeCommand);
 
-        mockMvc.perform(post("/recipe/1/update"))
+        mockMvc.perform(get("/recipe/1/update"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("/recipe/recipeform"))
                 .andExpect(model().attributeExists("recipe"));
