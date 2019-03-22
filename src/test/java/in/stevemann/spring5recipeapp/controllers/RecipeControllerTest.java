@@ -2,6 +2,7 @@ package in.stevemann.spring5recipeapp.controllers;
 
 import in.stevemann.spring5recipeapp.commands.RecipeCommand;
 import in.stevemann.spring5recipeapp.domain.Recipe;
+import in.stevemann.spring5recipeapp.exceptions.NotFoundException;
 import in.stevemann.spring5recipeapp.services.RecipeService;
 import org.junit.Before;
 import org.junit.Test;
@@ -92,5 +93,14 @@ public class RecipeControllerTest {
                 .andExpect(view().name("redirect:/"));
 
         verify(recipeService, times(1)).deleteById(anyLong());
+    }
+
+    @Test
+    public void testGetRecipeNotFound() throws Exception {
+
+        when(recipeService.findById(anyLong())).thenThrow(NotFoundException.class);
+
+        mockMvc.perform(get("/recipe/1/show"))
+                .andExpect(status().isNotFound());
     }
 }
