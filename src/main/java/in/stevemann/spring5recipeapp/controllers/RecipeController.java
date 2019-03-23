@@ -18,6 +18,8 @@ import javax.validation.Valid;
 public class RecipeController {
     public final RecipeService recipeService;
 
+    private static final String RECIPE_RECIPEFORM_URL = "recipe/recipeform";
+
     public RecipeController(RecipeService recipeService) {
         this.recipeService = recipeService;
     }
@@ -37,7 +39,7 @@ public class RecipeController {
 
         model.addAttribute("recipe", new RecipeCommand());
 
-        return "/recipe/recipeform";
+        return RECIPE_RECIPEFORM_URL;
     }
 
     @GetMapping("/recipe/{id}/update")
@@ -46,7 +48,7 @@ public class RecipeController {
 
         model.addAttribute("recipe", recipeService.findCommandById(Long.valueOf(id)));
 
-        return "/recipe/recipeform";
+        return RECIPE_RECIPEFORM_URL;
     }
 
     @PostMapping("/recipe")
@@ -57,7 +59,7 @@ public class RecipeController {
                 log.debug(objectError.toString());
             });
 
-            return "/recipe/recipeform";
+            return RECIPE_RECIPEFORM_URL;
         }
 
         RecipeCommand recipeCommand = recipeService.saveRecipeCommand(command);
